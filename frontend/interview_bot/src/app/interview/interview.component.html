@@ -1,0 +1,50 @@
+<div class="start-box" *ngIf="showStartBox">
+    <div>
+        <span class="icon" [ngClass]="{'red-cross': !cameraAllowed, 'green-tick': cameraAllowed}">
+            <span *ngIf="cameraAllowed">&#10003;</span>
+            <span *ngIf="!cameraAllowed">&#10007;</span>
+        </span>
+        <span class="permission-text">Camera Allowed</span>
+    </div>
+    <div>
+        <span class="icon" [ngClass]="{'red-cross': !audioAllowed, 'green-tick': audioAllowed}">
+            <span *ngIf="audioAllowed">&#10003;</span>
+            <span *ngIf="!audioAllowed">&#10007;</span>
+        </span>
+        <span class="permission-text">Audio Allowed</span>
+    </div>
+    <button mat-button (click)="start()" [disabled]="!cameraAllowed || !audioAllowed" [@buttonState]="(cameraAllowed && audioAllowed) ? 'granted' : ''">
+        <span><h2>Start</h2></span>
+    </button>
+</div>
+
+
+
+  
+  <div class="video-grid" [ngClass]="{'blur-background': showStartBox}">
+    <!-- Your existing video eleents -->
+    <div class="video" [ngClass]="{'self-video': false}">
+      <video #videoElement1 muted [src]="videos[0].src"></video>
+    </div>
+  
+    <div class="video" [ngClass]="{'self-video': false}">
+      <video #videoElement2 muted [src]="videos[1].src"></video>
+    </div>
+  
+    <div class="video" [ngClass]="{'self-video': false}">
+      <video #videoElement3 muted [src]="videos[2].src"></video>
+    </div>
+  
+    <div class="video" [ngClass]="{'self-video': false}">
+      <video #videoElement4 muted [src]="videos[3].src"></video>
+    </div>
+  
+    <div class="video self-video">
+      <video #selfVideo autoplay muted></video>
+    </div>
+  
+    <div class="video" [ngClass]="{'self-video': false}">
+      <video #videoElement5 muted [src]="videos[5].src"></video>
+    </div>
+  </div>
+  

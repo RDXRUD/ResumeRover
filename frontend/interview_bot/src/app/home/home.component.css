@@ -1,0 +1,118 @@
+/* General styles */
+.home {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    font-family: Arial, sans-serif;
+    background-image: url('assets/images/technology-4256272_1920.png'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    color: #fff;
+    overflow: hidden; /* Ensure the overlay doesn't create scrollbars */
+    /* display: flex; */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    text-align: center; /* Center text content */
+    z-index: 0; /* Ensure the content is behind the overlay */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    /* Add additional styles as needed */
+}
+
+.home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #10101cd0; /* Adjust the alpha value to control darkness */
+    z-index: 1; /* Ensure the overlay is on top of the content */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    position: relative; /* Ensure the container is positioned relative to allow z-index to work */
+    z-index: 4; /* Ensure the container is on top of the overlay */
+    background-color: #2A2A36;
+    
+
+}
+
+/* Logo animation */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00ffcc;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Hero section animation */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    position: relative; /* Ensure the container is positioned relative to allow z-index to work */
+    z-index: 2; 
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin: 0 0 10px;
+    line-height: 1;
+}
+
+.hero h2 {
+    font-size: 38px;
+    margin: 0 0 20px;
+    color:#00e6b3;
+    line-height: 1;
+}
+
+.hero p {
+    font-size: 22px;
+    margin: 0 0 40px;
+    /* max-width: 50%; */
+    justify-content: center;
+    line-height: 1.6;
+}
+
+/* Call to action button styles */
+.cta-button {
+    padding: 15px 30px;
+    background-color: #00ffcc;
+    color: #000;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #00e6b3;
+    transform: scale(1.05);
+}
